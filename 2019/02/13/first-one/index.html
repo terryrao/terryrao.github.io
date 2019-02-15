@@ -42,6 +42,7 @@
     <!-- rss -->
     
     
+	 <link rel="stylesheet" href="/css/gitment.css">
 </head>
 
 <body>
@@ -133,6 +134,15 @@
 </article>
 
 
+ 
+	                    <hr>
+	                    <div class="comments" id="comments">
+	                        
+	                            <div id="gitment-container"></div>
+	                        
+	                    </div>
+	                    <hr>
+	                
 
     </div>
     
@@ -231,4 +241,61 @@
     </script>
 
 
+
+<!-- Git Comment -->
+
+	    
+	    <!-- LOCAL: You can save these files to your site and update links -->
+	        
+	            <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+	            <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+	        
+	    <!-- END LOCAL -->
+	        
+	
+	        
+	        <script type="text/javascript">
+	            var option = {
+	                id: window.location.pathname,
+	                owner: 'terryrao',
+	                repo: 'gitment-comments',
+	                oauth: {
+	                    client_id: '446d683085d87824bd52'
+	                }
+	            };
+	            if(true) {
+	                option.lang = "" || navigator.language || navigator.systemLanguage || navigator.userLanguage;
+	            }
+	            if (true && false) {
+	                option.oauth.redirect_protocol = 'true';
+	            }
+	            if (true && false) {
+	                option.oauth.proxy_gateway = 'false';
+	            } else {
+	                option.oauth.client_secret = 'b239a807354dd0214ce9966373721a8a9bff2b0e';
+	            }
+	
+	            function renderGitment(){
+	                var gitment;
+	                if (true) {
+	                    gitment = new Gitmint(option);
+	                } else {
+	                    gitment = new Gitment(option);
+	                }
+	                gitment.render('gitment-container');
+	            }
+	
+	            if(!false) {
+	                renderGitment();
+	            } else {
+	                function showGitment(){
+	                    document.getElementById("gitment-display-button").style.display = "none";
+	                    document.getElementById("gitment-container").style.display = "block";
+	                    renderGitment();
+	                }
+	            }
+	        </script>
+	        
+	    
+	
 
