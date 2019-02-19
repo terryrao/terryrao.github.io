@@ -14,7 +14,9 @@
 <meta property="og:description" content="使用github pages 和 hexo 搭建一个个人博客网站。github pages 是 github 公司提供的免费的静态网站托管服务。从主页进去我们可以看到它主要有两个用途：作为个人或者组织的站点或者作为项目的站点，因此我们可以用这个服务来搭建自己的博客，使用 jekyll 或者 hexo 等工具可以创建自己风格的主题。 1. github pages搭建过程在 github pages">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://github.com/terryrao/picturebed/raw/master/blogs/1550389323701.jpg">
-<meta property="og:updated_time" content="2019-02-18T10:24:35.831Z">
+<meta property="og:image" content="https://github.com/terryrao/picturebed/raw/69481d454f/blogs/1550542503010.jpg">
+<meta property="og:image" content="https://github.com/terryrao/picturebed/raw/69481d454f/blogs/WX20190219-101744_2x.png">
+<meta property="og:updated_time" content="2019-02-19T04:05:58.752Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github + hexo 搭建个人博客">
 <meta name="twitter:description" content="使用github pages 和 hexo 搭建一个个人博客网站。github pages 是 github 公司提供的免费的静态网站托管服务。从主页进去我们可以看到它主要有两个用途：作为个人或者组织的站点或者作为项目的站点，因此我们可以用这个服务来搭建自己的博客，使用 jekyll 或者 hexo 等工具可以创建自己风格的主题。 1. github pages搭建过程在 github pages">
@@ -71,6 +73,8 @@
     <span id="actions">
       <ul>
         
+        <li><a class="icon" href="/2019/02/19/花生壳-https-自动跳转到-http-问题/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -97,7 +101,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-github-pages"><span class="toc-number">1.</span> <span class="toc-text">1. github pages</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建自己的-github-pages"><span class="toc-number">1.0.1.</span> <span class="toc-text">创建自己的 github pages</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-github-pages"><span class="toc-number">1.</span> <span class="toc-text">1. github pages</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建自己的-github-pages"><span class="toc-number">1.0.1.</span> <span class="toc-text">创建自己的 github pages</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本地-git-的使用"><span class="toc-number">1.0.2.</span> <span class="toc-text">本地 git 的使用</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Hexo"><span class="toc-number">2.</span> <span class="toc-text">2. Hexo</span></a></li>
     </div>
   </span>
 </div>
@@ -150,6 +154,54 @@
 <p>转到 <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a> <a href="https://github.com/new" target="_blank" rel="noopener">创建一个新的仓库</a>，将名称命名为 yourusername.github.io 。需要注意的是这个 yourusername 必须是你的用户名，并且区分大小写，如图：</p>
 <p><img src="https://github.com/terryrao/picturebed/raw/master/blogs/1550389323701.jpg" alt="建立新库"></p>
 <p>图上显示的警告是因为我已经有该库，选择库的类型为 public ，然后直接创建，就有一个新库了。</p>
+<h3 id="本地-git-的使用"><a href="#本地-git-的使用" class="headerlink" title="本地 git 的使用"></a>本地 git 的使用</h3><ol>
+<li><p>将公钥上传到 github 上</p>
+<p>在 mac/linux 上 进入自己的 home（以自己的用户命名的目录） 目录，使用以下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~ ssh-keygen</span><br></pre></td></tr></table></figure>
+<p>然后一路按 enter 键下来。 然后切换到 .ssh 目录来 就可以看到一个叫 id_rsa.pub 的文件，将里面的本文 copy 出来，切换到 github 页面上，点击用户图像 ，点击 settings 进入配置页，点击 SSH and GPG keys -&gt; new SSH key</p>
+<p>,取个名保存即可，如图所示：</p>
+<p><img src="https://github.com/terryrao/picturebed/raw/69481d454f/blogs/1550542503010.jpg" alt="我的设置"></p>
+<p><img src="https://github.com/terryrao/picturebed/raw/69481d454f/blogs/WX20190219-101744_2x.png" alt="SSH Key"></p>
+<blockquote>
+<p> 参考： <a href="https://git-scm.com/book/zh/v1/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5" target="_blank" rel="noopener">git-scm 生成 SSH 公钥</a> </p>
+</blockquote>
+</li>
+<li><p>上传内容</p>
+<p>找到自己建立的库，找到 clone or download  ，复制 <a href="mailto:`git@github.com" target="_blank" rel="noopener">`git@github.com</a>:yourusername/terryrao.github.io.git` 到粘贴板。然后打开本地的 命令行窗口，输入以下内容:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:yourusername/terryrao.github.io.git</span><br><span class="line"><span class="built_in">cd</span> yourusername.github.io</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Hello World"</span> &gt; index.html</span><br><span class="line">git add --all </span><br><span class="line">git commit -m <span class="string">"Initial comment"</span> </span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<p>Push 成功后到自己的 github 的 yourusername.github.io 里查看是否有刚才提交的 index.html 页面，如果有就代表 push 成功 。然后在浏览器里输入 yourusername.github.io 看到 <code>hello world</code> 两个字就代表成功了，接下来就使用 hexo 写博客了。</p>
+</li>
+</ol>
+<h1 id="2-Hexo"><a href="#2-Hexo" class="headerlink" title="2. Hexo"></a>2. Hexo</h1><p><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">Hexo</a> 是一个快速、简洁的博客框架，使用 markdown 解析文件，生成静态页面。Hexo 是基于 nodejs 开发的，因此安装之前需要先安装 nodejs。</p>
+<ol>
+<li>安装 nodejs</li>
+</ol>
+<p>网上有很多教程，对于 windows 可以直接在 <a href="https://nodejs.org/" target="_blank" rel="noopener">nodejs</a> 的官网上下载安装包直接安装。对于 mac/linux 推荐使用 <a href="https://github.com/creationix/nvm" target="_blank" rel="noopener">nvm</a> 安装。下面介绍一下 nvm 安装的步骤：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash</span><br><span class="line">nvm install  stable</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>安装 hexo</li>
+</ol>
+<p>安装 nodejs 之后就可以使用 npm 来安装 hexo 了，如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>初始化 hexo</li>
+</ol>
+<p>在自己习惯的目录下新建一个文件夹，如 my_blogs ，切换到 my_blogs 目录，使用以下命令初始化 hexo 环境。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir my_blogs</span><br><span class="line">hexo init my_blogs</span><br><span class="line"><span class="built_in">cd</span> my_blogs</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>之后就会看到生成的一些文件和文件夹，表示已经初始化好环境了，接下来就可以写作了</p>
+<ol start="4">
+<li>新建文章</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"你的文章名称"</span></span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>hexo new 命令完成之后，新建的文件就在 source/_post下，使用文本编辑器，以 markdown 的格式写入文本，保存文件。然后使用 hexo g 命令生成 文件，最后用 hexo s 启动 web 服务 ，在浏览器中输入 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 就可以看到刚才输入的内容了。</p>
+<ol start="5">
+<li>添加主题</li>
+</ol>
+<p><a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo themes</a> 官网上有很多模板，可以选择自己喜欢的模板，进入到它的 github 连接里，使用 git clone 命令下载到 theme/ 目录下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line"><span class="built_in">cd</span> my_blogs/themes</span><br><span class="line">git <span class="built_in">clone</span> git@github.com:Haojen/hexo-theme-Anisina.git</span><br></pre></td></tr></table></figure>
+<p>成功后就会看到 themes 下多了个 hexo-theme-Anisina 目录，这个目录就是刚才下下来的主题。切换到 my_blogs 目录，打开 _config.yml 文件，找到 theme ，改为刚下载的主题：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">hexo-theme-Anisina</span></span><br></pre></td></tr></table></figure>
+<p>然后直接运行命令 hexo g ，再打开 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 查看效果。</p>
 
   </div>
 </article>
@@ -185,7 +237,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-github-pages"><span class="toc-number">1.</span> <span class="toc-text">1. github pages</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建自己的-github-pages"><span class="toc-number">1.0.1.</span> <span class="toc-text">创建自己的 github pages</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-github-pages"><span class="toc-number">1.</span> <span class="toc-text">1. github pages</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建自己的-github-pages"><span class="toc-number">1.0.1.</span> <span class="toc-text">创建自己的 github pages</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本地-git-的使用"><span class="toc-number">1.0.2.</span> <span class="toc-text">本地 git 的使用</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Hexo"><span class="toc-number">2.</span> <span class="toc-text">2. Hexo</span></a></li>
     </div>
 
     <div id="share-footer" style="display: none">
