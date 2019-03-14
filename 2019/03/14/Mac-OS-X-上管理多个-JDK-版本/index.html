@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="JDK 下载安装JDK 可以在 oracle 官网上下载，直接运行 .dmg 文件即可。安装完毕后，可以在本地的 /Library/Java/JavaVirtualMachines 目录下看到自己安装的版本，使用 java 命令查看一下是否安装完毕： 1234java -versionjava version &quot;11.0.2&quot; 2019-01-15 LTSJava(TM) SE Runtime E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac OS X 上管理多个 JDK 版本">
+<meta property="og:url" content="http://yoursite.com/2019/03/14/Mac-OS-X-上管理多个-JDK-版本/index.html">
+<meta property="og:site_name" content="terryrao">
+<meta property="og:description" content="JDK 下载安装JDK 可以在 oracle 官网上下载，直接运行 .dmg 文件即可。安装完毕后，可以在本地的 /Library/Java/JavaVirtualMachines 目录下看到自己安装的版本，使用 java 命令查看一下是否安装完毕： 1234java -versionjava version &quot;11.0.2&quot; 2019-01-15 LTSJava(TM) SE Runtime E">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-14T04:10:11.222Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac OS X 上管理多个 JDK 版本">
+<meta name="twitter:description" content="JDK 下载安装JDK 可以在 oracle 官网上下载，直接运行 .dmg 文件即可。安装完毕后，可以在本地的 /Library/Java/JavaVirtualMachines 目录下看到自己安装的版本，使用 java 命令查看一下是否安装完毕： 1234java -versionjava version &quot;11.0.2&quot; 2019-01-15 LTSJava(TM) SE Runtime E">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Mac OS X 上管理多个 JDK 版本</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+	 <link rel="stylesheet" href="/css/gitment.css">
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/posts/">Writing</a></li>
+         
+          <li><a href="https://github.com/terryrao">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2019/02/19/花生壳-https-自动跳转到-http-问题/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/03/14/Mac-OS-X-上管理多个-JDK-版本/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/03/14/Mac-OS-X-上管理多个-JDK-版本/&text=Mac OS X 上管理多个 JDK 版本"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/03/14/Mac-OS-X-上管理多个-JDK-版本/&title=Mac OS X 上管理多个 JDK 版本"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/03/14/Mac-OS-X-上管理多个-JDK-版本/&is_video=false&description=Mac OS X 上管理多个 JDK 版本"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Mac OS X 上管理多个 JDK 版本&body=Check out this article: http://yoursite.com/2019/03/14/Mac-OS-X-上管理多个-JDK-版本/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/03/14/Mac-OS-X-上管理多个-JDK-版本/&title=Mac OS X 上管理多个 JDK 版本"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/03/14/Mac-OS-X-上管理多个-JDK-版本/&title=Mac OS X 上管理多个 JDK 版本"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/03/14/Mac-OS-X-上管理多个-JDK-版本/&title=Mac OS X 上管理多个 JDK 版本"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/03/14/Mac-OS-X-上管理多个-JDK-版本/&title=Mac OS X 上管理多个 JDK 版本"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/03/14/Mac-OS-X-上管理多个-JDK-版本/&name=Mac OS X 上管理多个 JDK 版本&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JDK-下载安装"><span class="toc-number">1.</span> <span class="toc-text">JDK 下载安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改-bash-profile-或者-zshrc"><span class="toc-number">2.</span> <span class="toc-text">修改 .bash_profile 或者 .zshrc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原理"><span class="toc-number">3.</span> <span class="toc-text">原理</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Mac OS X 上管理多个 JDK 版本
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <span itemprop="name">terryrao</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2019-03-14T03:52:38.000Z" itemprop="datePublished">2019-03-14</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h3 id="JDK-下载安装"><a href="#JDK-下载安装" class="headerlink" title="JDK 下载安装"></a>JDK 下载安装</h3><p>JDK 可以在 oracle 官网上下载，直接运行 .dmg 文件即可。安装完毕后，可以在本地的 <code>/Library/Java/JavaVirtualMachines</code> 目录下看到自己安装的版本，使用 java 命令查看一下是否安装完毕：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br><span class="line">java version <span class="string">"11.0.2"</span> 2019-01-15 LTS</span><br><span class="line">Java(TM) SE Runtime Environment 18.9 (build 11.0.2+9-LTS)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.2+9-LTS, mixed mode)</span><br></pre></td></tr></table></figure>
+<h3 id="修改-bash-profile-或者-zshrc"><a href="#修改-bash-profile-或者-zshrc" class="headerlink" title="修改 .bash_profile 或者 .zshrc"></a>修改 .bash_profile 或者 .zshrc</h3><p>找到自己的 jdk 路径，然后修改 <code>.bash_profile</code> ，zsh 修改 .zshrc，按自己的目录输入以下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># jdk 8</span></span><br><span class="line"><span class="built_in">export</span> JAVA_8_HOME=<span class="string">"/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home"</span></span><br><span class="line"><span class="comment"># jdk 11</span></span><br><span class="line"><span class="built_in">export</span> JAVA_11_HOME=<span class="string">"/Library/Java/JavaVirtualMachines/jdk-11.0.2.jdk/Contents/Home"</span></span><br><span class="line"><span class="comment"># 默认jdk</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=<span class="variable">$JAVA_11_HOME</span></span><br><span class="line"><span class="built_in">alias</span> jdk8=<span class="string">"export JAVA_HOME=<span class="variable">$JAVA_8_HOME</span>"</span></span><br><span class="line"><span class="built_in">alias</span> jdk11=<span class="string">"export JAVA_HOME=<span class="variable">$JAVA_11_HOME</span>"</span></span><br></pre></td></tr></table></figure>
+<p>然后 输入<code>source ~/.bash_profile</code> 或者 <code>source ~/.zshrc</code> ，输入以下命令验证刚才的配置是否成功：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">~ jdk8</span><br><span class="line">~ java -version</span><br><span class="line">  	java version <span class="string">"1.8.0_191"</span></span><br><span class="line">  	Java(TM) SE Runtime Environment (build 1.8.0_191-b12)</span><br><span class="line">  	Java HotSpot(TM) 64-Bit Server VM (build 25.191-b12, mixed mode)</span><br><span class="line"></span><br><span class="line">~ jdk11</span><br><span class="line">~ java -version</span><br><span class="line">	java version <span class="string">"11.0.2"</span> 2019-01-15 LTS</span><br><span class="line">	Java(TM) SE Runtime Environment 18.9 (build 11.0.2+9-LTS)</span><br><span class="line">	Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.2+9-LTS, mixed mode)</span><br></pre></td></tr></table></figure>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>Mac OS X 已经内置了管理 jdk 版本的工具，通过 <code>/usr/libexec/java_home</code> 命令追踪可以查看当前的 <code>$JAVA_HOME</code> 。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">~ /usr/libexec/java_home</span><br><span class="line">	/Library/Java/JavaVirtualMachines/jdk-11.0.2.jdk/Contents/Home</span><br><span class="line">~ /usr/libexec/java_home -V</span><br><span class="line">	Matching Java Virtual Machines (2):</span><br><span class="line">   	 	11.0.2, x86_64:	<span class="string">"Java SE 11.0.2"</span>	/Library/Java/JavaVirtualMachines/jdk-				11.0.2.jdk/Contents/Home</span><br><span class="line">    	1.8.0_191, x86_64:	<span class="string">"Java SE 8"</span>					       /Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home</span><br></pre></td></tr></table></figure>
+<p>参考：</p>
+<p><a href="https://www.jianshu.com/p/af79ae7f732c" target="_blank" rel="noopener">https://www.jianshu.com/p/af79ae7f732c</a></p>
+<p><a href="https://segmentfault.com/a/1190000013131276" target="_blank" rel="noopener">https://segmentfault.com/a/1190000013131276</a></p>
+
+  </div>
+</article>
+
+
+ 
+	                    <hr>
+	                    <div class="comments" id="comments">
+	                        
+	                            <div id="gitment-container"></div>
+	                        
+	                    </div>
+	                    <hr>
+	                
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/posts/">Writing</a></li>
+         
+          <li><a href="https://github.com/terryrao">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JDK-下载安装"><span class="toc-number">1.</span> <span class="toc-text">JDK 下载安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改-bash-profile-或者-zshrc"><span class="toc-number">2.</span> <span class="toc-text">修改 .bash_profile 或者 .zshrc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原理"><span class="toc-number">3.</span> <span class="toc-text">原理</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/03/14/Mac-OS-X-上管理多个-JDK-版本/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/03/14/Mac-OS-X-上管理多个-JDK-版本/&text=Mac OS X 上管理多个 JDK 版本"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/03/14/Mac-OS-X-上管理多个-JDK-版本/&title=Mac OS X 上管理多个 JDK 版本"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/03/14/Mac-OS-X-上管理多个-JDK-版本/&is_video=false&description=Mac OS X 上管理多个 JDK 版本"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Mac OS X 上管理多个 JDK 版本&body=Check out this article: http://yoursite.com/2019/03/14/Mac-OS-X-上管理多个-JDK-版本/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/03/14/Mac-OS-X-上管理多个-JDK-版本/&title=Mac OS X 上管理多个 JDK 版本"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/03/14/Mac-OS-X-上管理多个-JDK-版本/&title=Mac OS X 上管理多个 JDK 版本"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/03/14/Mac-OS-X-上管理多个-JDK-版本/&title=Mac OS X 上管理多个 JDK 版本"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/03/14/Mac-OS-X-上管理多个-JDK-版本/&title=Mac OS X 上管理多个 JDK 版本"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/03/14/Mac-OS-X-上管理多个-JDK-版本/&name=Mac OS X 上管理多个 JDK 版本&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 Terry Rao
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/posts/">Writing</a></li>
+         
+          <li><a href="https://github.com/terryrao">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-37473492-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+
+<!-- Git Comment -->
+
+	    
+	    <!-- LOCAL: You can save these files to your site and update links -->
+	        
+	            <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	            <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	        
+	    <!-- END LOCAL -->
+	        
+	
+	        
+	        <script type="text/javascript">
+	            var option = {
+	                id: window.location.pathname,
+	                owner: 'terryrao',
+	                repo: 'gitment-comments',
+	                oauth: {
+	                    client_id: '446d683085d87824bd52'
+	                }
+	            };
+	            if(false) {
+	                option.lang = "" || navigator.language || navigator.systemLanguage || navigator.userLanguage;
+	            }
+	            if (false && false) {
+	                option.oauth.redirect_protocol = 'true';
+	            }
+	            if (false && false) {
+	                option.oauth.proxy_gateway = 'false';
+	            } else {
+	                option.oauth.client_secret = 'b239a807354dd0214ce9966373721a8a9bff2b0e';
+	            }
+	
+	            function renderGitment(){
+	                var gitment;
+	                if (false) {
+	                    gitment = new Gitmint(option);
+	                } else {
+	                    gitment = new Gitment(option);
+	                }
+	                gitment.render('gitment-container');
+	            }
+	
+	            if(!false) {
+	                renderGitment();
+	            } else {
+	                function showGitment(){
+	                    document.getElementById("gitment-display-button").style.display = "none";
+	                    document.getElementById("gitment-container").style.display = "block";
+	                    renderGitment();
+	                }
+	            }
+	        </script>
+	        
+	    
+	
+
