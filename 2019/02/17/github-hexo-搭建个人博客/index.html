@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://github.com/terryrao/picturebed/raw/master/blogs/1550389323701.jpg">
 <meta property="og:image" content="https://github.com/terryrao/picturebed/raw/69481d454f/blogs/1550542503010.jpg">
 <meta property="og:image" content="https://github.com/terryrao/picturebed/raw/69481d454f/blogs/WX20190219-101744_2x.png">
-<meta property="og:updated_time" content="2019-02-19T04:05:58.752Z">
+<meta property="og:updated_time" content="2019-03-21T02:34:13.757Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github + hexo 搭建个人博客">
 <meta name="twitter:description" content="使用github pages 和 hexo 搭建一个个人博客网站。github pages 是 github 公司提供的免费的静态网站托管服务。从主页进去我们可以看到它主要有两个用途：作为个人或者组织的站点或者作为项目的站点，因此我们可以用这个服务来搭建自己的博客，使用 jekyll 或者 hexo 等工具可以创建自己风格的主题。 1. github pages搭建过程在 github pages">
@@ -202,6 +202,18 @@
 <p>成功后就会看到 themes 下多了个 hexo-theme-Anisina 目录，这个目录就是刚才下下来的主题。切换到 my_blogs 目录，打开 _config.yml 文件，找到 theme ，改为刚下载的主题：</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">hexo-theme-Anisina</span></span><br></pre></td></tr></table></figure>
 <p>然后直接运行命令 hexo g ，再打开 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 查看效果。</p>
+<ol start="6">
+<li>部署文章到 github 上</li>
+</ol>
+<p>进入 my_blogs 目录  打开 <code>_config.yml</code> 文件，在 <code>deploy</code> ，type 修改为 git ，添加自己的 yourusername.github.io 库。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="string">git@github.com:terryrao/terryrao.github.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+<p>然后使用命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>就可以将生成好的静态文件发布到 github 上去了。</p>
+<ol start="7">
+<li>添加 gitment</li>
+</ol>
+<p>Gitment </p>
 
   </div>
 </article>
@@ -329,7 +341,7 @@
 	        
 	        <script type="text/javascript">
 	            var option = {
-	                id: window.location.pathname,
+	                id: Sun Feb 17 2019 10:38:32 GMT+0800,
 	                owner: 'terryrao',
 	                repo: 'gitment-comments',
 	                oauth: {
